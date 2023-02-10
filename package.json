@@ -1,0 +1,32 @@
+{
+  "name": "rollup_go",
+  "version": "1.0.0",
+  "description": "rollup diving",
+  "main": "main.js",
+  "author": "mumu-pika",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "yarn build && node dist/bundle.js",
+    "build": "yarn rollup --config",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^8.0.0",
+    "lodash-es": "^4.17.21",
+    "rollup": "^3.14.0"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^17.4.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
