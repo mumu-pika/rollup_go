@@ -4,6 +4,7 @@
 // import _ from 'lodash-es' // 导入第三方模块依赖lodash-es
 // import cjs from './cjs-module' // 导入commonjs语法的模块
 
+// 这些是静态导入的方式
 // // 在使用了rollup-plugin-json插件之后
 // import { name, description } from '../package.json'
 // // 使用模块成员
@@ -17,6 +18,7 @@
 
 
 // code splitting 代码分割
+// 动态导入的方式
 import('./logger').then(({log}) => {
   log('code splitting')
 })

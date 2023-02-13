@@ -52,3 +52,29 @@ export default function () {
   import('./foo.js').then(({ default: foo }) => console.log(foo));
 }
  ```
+
+### 4、rollup多入口打包
+```javascript
+// input: 'src/index.js', // 打包的入口文件路径
+input: ['src/index.js', 'src/anotherEntry.js'],
+// 多入口打包路径
+// 多入口打包, 内部会自动提取公共模块，内部会使用代码拆分, 因此代码输出格式不能是iife和umd
+// 指定输出的相关配置
+
+// 多入口打包还可以写成对象的形式
+input: {
+  'bundle1': 'src/index.js',
+  'bundle2': 'src/anotherEntry.js'
+}
+```
+
+对于amd这种输出格式的js文件，我们不能直接去引用到页面上，而必须要去通过实现amd标准的库去加载，比如借助于requirejs这个库来加载amd模块。
+
+### 5、rollup本身的一些特点
+* 输出扁平
+* 自动移除未使用的代码
+* 打包结果依然完全可读
+* 加载非ESM的模块相对复杂, 需要配置一系列插件
+* 模块最终都被打包到一个函数中, 无法实现HMR
+* 浏览器环境中, 代码拆分功能依赖AMD库
+* webpack大而全, rollup小而美
